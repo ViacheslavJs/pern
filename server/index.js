@@ -3,6 +3,7 @@ const express = require('express');
 const { Pool } = require('pg');
 
 const app = express();
+app.use(express.static(__dirname + '/public'));
 const PORT = process.env.PORT || 3001;
 
 // Подключение к базе данных
