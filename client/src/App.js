@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import MainCourses from './MainCourses';
-import Appetizers from './Appetizers';
-import Desserts from './Desserts';
+import MainCourses from './Pages/MainCourses';
+import Appetizers from './Pages/Appetizers';
+import Desserts from './Pages/Desserts';
 
 function App() {
   return (
