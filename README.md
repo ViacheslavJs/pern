@@ -1,6 +1,7 @@
 # PERN project
 ## Creating a database in PostgreSQL
 
+Create table:
 ```
 CREATE TABLE products (
   id SERIAL PRIMARY KEY,
@@ -12,7 +13,10 @@ CREATE TABLE products (
   image_path VARCHAR(255)  -- Путь к изображению
 );
 
+```
 
+Creating table records (columns and rows):
+```
 INSERT INTO products (name, price, category, description, alt, image_path)
 VALUES
   ('Rib-eye steak', 25.99, 'Main courses', 'Juicy beef steak', 'Grilled rib-eye steak', '/images/steak.webp'),
@@ -24,3 +28,26 @@ VALUES
 ;
 
 ```
+
+Delete all objects matching a specific category:
+```
+DELETE FROM products WHERE category = 'Main courses';
+
+```
+
+Add the appropriate entries back to the products table:
+```
+INSERT INTO products (name, price, category, description, alt, image_path)
+VALUES
+  ('Rib-eye steak', 25.99, 'Main courses', 'Juicy beef steak', 'Grilled rib-eye steak', '/images/steak.webp'),
+  ('Carbonara pasta', 15.99, 'Main courses', 'Italian pasta with bacon and egg', 'Carbonara pasta in a plate', '/images/carbonara.webp');
+
+```
+
+Delete all rows in the "products" table:
+```
+DELETE FROM products;
+
+```
+
+

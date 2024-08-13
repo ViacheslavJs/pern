@@ -2,17 +2,22 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styles from './Products.module.css';
 
-function Appetizers() {
+function MainCourses() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    axios.get('/api/products/Appetizers')
-      .then(response => {
+    // Определяем асинхронную функцию для получения данных
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get('/api/products/Appetizers');
         setProducts(response.data);
-      })
-      .catch(error => {
-        console.error('Error fetching appetizers:', error);
-      });
+      } catch (error) {
+        console.error('Error fetching main courses:', error);
+      }
+    };
+
+    // Вызываем асинхронную функцию
+    fetchProducts();
   }, []);
 
   return (
@@ -34,5 +39,5 @@ function Appetizers() {
   );
 }
 
-export default Appetizers;
+export default MainCourses;
 

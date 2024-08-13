@@ -6,13 +6,18 @@ function MainCourses() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    axios.get('/api/products/Main courses')
-      .then(response => {
+    // Определяем асинхронную функцию для получения данных
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get('/api/products/Main courses');
         setProducts(response.data);
-      })
-      .catch(error => {
+      } catch (error) {
         console.error('Error fetching main courses:', error);
-      });
+      }
+    };
+
+    // Вызываем асинхронную функцию
+    fetchProducts();
   }, []);
 
   return (
