@@ -15,9 +15,7 @@ const pool = new Pool({
   database: process.env.DB_NAME,
   password: process.env.DB_PASSWORD,
   port: process.env.DB_PORT,
-  intDbUrl: process.env.INTERNAL_DB_URL,
-  extDbUrl: process.env.EXTERNAL_DB_URL,
-  psqlCommand: process.env.PSQL_COMMAND
+  connectionString: process.env.INTERNAL_DB_URL,
 });
 
 const TABLE_NAME = 'products';
