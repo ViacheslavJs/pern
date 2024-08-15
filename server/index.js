@@ -3,11 +3,20 @@ const express = require('express');
 const { Pool } = require('pg');
 const cors = require('cors');
 
+const fs = require('fs').promises;
+const path = require('path');
+
 const app = express();
 const PORT = process.env.PORT || 3001;
+const USE_DATABASE = process.env.USE_DATABASE === 'true';
 
 app.use(express.static(__dirname + '/public'));
 app.use(cors());
+
+
+if (USE_DATABASE) {
+//
+
 
 const pool = new Pool({
   user: process.env.DB_USER,
@@ -63,6 +72,58 @@ app.get('/api/products/:category', async (req, res) => {
     console.log('\x1b[1;43;97mDB: disconnected\x1b[0m');
   }
 });
+//
+
+
+} else {
+
+
+// Функция для чтения данных из JSON-файла
+async function readDataFromJSON() {
+  try {
+    const data = await fs.readFile(path.join(__dirname, 'data', 'data.json'), 'utf8');
+    return JSON.parse(data);
+  } catch (err) {
+    console.error('Error reading JSON file:', err);
+    throw err;
+  }
+}
+
+// Route to output JSON in browser - http://localhost:3001/data
+app.get('/data', async (req, res) => {
+  try {
+    const data = await readDataFromJSON();
+    res.json(data);
+  } catch (err) {
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+//
+
+// Маршрут для получения данных по категории из JSON
+app.get('/api/products/:category', async (req, res) => {
+  const { category } = req.params;
+
+  try {
+    // Чтение данных из JSON-файла
+    const data = await readDataFromJSON();
+    const products = data.products.filter(product => product.category === category);
+
+    if (products.length === 0) {
+      res.status(404).json({ message: 'No products found for this category' });
+    } else {
+      res.json(products);
+      console.log('\x1b[1;43;97mJSON:\x1b[0m', '\n', products);
+    }
+  } catch (err) {
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+
+//
+} //else
+
 
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);

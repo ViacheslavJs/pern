@@ -9,8 +9,8 @@ CREATE TABLE products (
   price NUMERIC(10,2),
   category VARCHAR(50),
   description TEXT,
-  alt VARCHAR(255),  -- Альтернативный текст для изображения
-  image_path VARCHAR(255)  -- Путь к изображению
+  alt VARCHAR(255),
+  image_path VARCHAR(255)
 );
 
 ```

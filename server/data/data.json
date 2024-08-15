@@ -1,0 +1,59 @@
+{
+  "products": [
+    {
+      "id": 43,
+      "name": "Rib-eye steak",
+      "price": "25.99",
+      "category": "Main courses",
+      "description": "Juicy beef steak",
+      "alt": "Grilled rib-eye steak",
+      "image_path": "/images/steak.webp"
+    },
+    {
+      "id": 44,
+      "name": "Carbonara pasta",
+      "price": "15.99",
+      "category": "Main courses",
+      "description": "Italian pasta with bacon and egg",
+      "alt": "Carbonara pasta in a plate",
+      "image_path": "/images/carbonara.webp"
+    },
+    {
+      "id": 2,
+      "name": "Caesar salad",
+      "price": "12.99",
+      "category": "Appetizers",
+      "description": "Classic chicken salad",
+      "alt": "Caesar salad with parmesan",
+      "image_path": "/images/caesar_salad.webp"
+    },
+    {
+      "id": 5,
+      "name": "Bruschetta with tomatoes",
+      "price": "7.99",
+      "category": "Appetizers",
+      "description": "Light snack with tomatoes and basil",
+      "alt": "Bruschetta with basil",
+      "image_path": "/images/bruschetta.webp"
+    },
+    {
+      "id": 3,
+      "name": "Chocolate cake",
+      "price": "8.99",
+      "category": "Desserts",
+      "description": "Tender chocolate cake",
+      "alt": "Chocolate cake with cherry",
+      "image_path": "/images/chocolate_cake.webp"
+    },
+    {
+      "id": 6,
+      "name": "Tiramisu",
+      "price": "6.99",
+      "category": "Desserts",
+      "description": "Italian dessert with mascarpone",
+      "alt": "Tiramisu in a glass",
+      "image_path": "/images/tiramisu.webp"
+    }
+  ]
+}
+

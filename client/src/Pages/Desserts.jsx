@@ -59,7 +59,7 @@ function MainCourses() {
           </div>
         ))
       ) : (
-        <p className={styles.messages}>No products found</p>
+        <p className={styles.messagesNotFound}>No products found</p>
       )}
     </div>
   </div>
