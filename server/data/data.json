@@ -1,7 +1,7 @@
 {
   "products": [
     {
-      "id": 43,
+      "id": 1,
       "name": "Rib-eye steak",
       "price": "25.99",
       "category": "Main courses",
@@ -10,7 +10,7 @@
       "image_path": "/images/steak.webp"
     },
     {
-      "id": 44,
+      "id": 2,
       "name": "Carbonara pasta",
       "price": "15.99",
       "category": "Main courses",
@@ -19,7 +19,7 @@
       "image_path": "/images/carbonara.webp"
     },
     {
-      "id": 2,
+      "id": 3,
       "name": "Caesar salad",
       "price": "12.99",
       "category": "Appetizers",
@@ -28,7 +28,7 @@
       "image_path": "/images/caesar_salad.webp"
     },
     {
-      "id": 5,
+      "id": 4,
       "name": "Bruschetta with tomatoes",
       "price": "7.99",
       "category": "Appetizers",
@@ -37,7 +37,7 @@
       "image_path": "/images/bruschetta.webp"
     },
     {
-      "id": 3,
+      "id": 5,
       "name": "Chocolate cake",
       "price": "8.99",
       "category": "Desserts",

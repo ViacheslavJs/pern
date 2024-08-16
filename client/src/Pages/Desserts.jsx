@@ -45,16 +45,16 @@ function MainCourses() {
 
   return (
   <div>
-    <h1 className={styles.categoriesTitle}>Desserts</h1>
+    <h1 className={styles.categoryTitle}>Desserts</h1>
     <div className={styles.products}>
       {products.length !== 0 ? (
         products.map(product => (
-          <div className={styles.productsItem} key={product.id}>
-            <img className={styles.productsImage} src={process.env.REACT_APP_API_URL + product.image_path} alt={product.alt} />
-            <div className={styles.productsText}>
-              <h2 className={styles.productsTitle}>{product.name}</h2>
+          <div className={styles.productItem} key={product.id}>
+            <img className={styles.productImage} src={process.env.REACT_APP_API_URL + product.image_path} alt={product.alt} />
+            <div className={styles.productText}>
+              <h2 className={styles.productTitle}>{product.name}</h2>
               <p>{product.description}</p>
-              <p className={styles.productsPrice}>Price: ${product.price}</p>
+              <p className={styles.productPrice}>Price: ${product.price}</p>
             </div>
           </div>
         ))

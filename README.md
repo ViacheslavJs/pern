@@ -44,6 +44,12 @@ VALUES
 
 ```
 
+Rename column value:
+```
+UPDATE products SET category = 'Main' WHERE category = 'Main courses';
+
+```
+
 Delete all rows in the "products" table:
 ```
 DELETE FROM products;

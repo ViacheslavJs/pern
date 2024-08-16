@@ -29,6 +29,39 @@ const pool = new Pool({
 
 const TABLE_NAME = 'products';
 
+//TODO TEST
+app.get('/api/categories', async (req, res) => {
+  try {
+    // Подключаемся к базе данных
+    const client = await pool.connect();
+
+    try {
+      // Выполняем запрос для получения уникальных категорий
+      const result = await client.query(
+        `SELECT DISTINCT category FROM ${TABLE_NAME}`
+      );
+
+      const categories = result.rows.map(row => row.category);
+
+      res.json(categories);
+      console.log(`${TABLE_NAME}:`, categories);
+    } catch (queryError) {
+      // Обрабатываем ошибку выполнения запроса
+      console.error('Error executing query:', queryError);
+      res.status(500).send('Server error');
+    } finally {
+      // Освобождаем подключение в любом случае
+      client.release();
+    }
+  } catch (connectionError) {
+    // Обрабатываем ошибку подключения к базе данных
+    console.error('Database connection error:', connectionError);
+    res.status(500).send('Server error');
+    console.log('\x1b[1;43;97mDB: disconnected\x1b[0m');
+  }
+});
+
+
 // Маршрут для получения данных из базы данных по категории
 app.get('/api/products/:category', async (req, res) => {
   const { category } = req.params;
@@ -99,6 +132,18 @@ app.get('/data', async (req, res) => {
   }
 });
 //
+
+//TODO TEST
+app.get('/api/categories', async (req, res) => {
+  try {
+    const data = await readDataFromJSON();
+    const categories = [...new Set(data.products.map(product => product.category))];
+    res.json(categories);
+  } catch (err) {
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
 
 // Маршрут для получения данных по категории из JSON
 app.get('/api/products/:category', async (req, res) => {

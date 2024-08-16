@@ -12,7 +12,7 @@
   
 }
 
-.productsItem {
+.productItem {
   position: relative;
   
   flex-direction: column;		 
@@ -24,20 +24,20 @@
   background: #F5F5DC;
 }
 
-.productsText {
+.productText {
   padding: 0 5px;
 }
 
-.categoriesTitle {
+.categoryTitle {
   text-align: center;
   color:  #7d7d7d;
 }
 
-.productsTitle {
+.productTitle {
   font-size: 18px;
 }
 
-.productsImage { 
+.productImage { 
   position: relative;
   display: block;  
   width: 100%; 
@@ -47,7 +47,7 @@
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-.productsPrice {
+.productPrice {
  /*align-self: flex-end;*/
 }
 
